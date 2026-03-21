@@ -54,3 +54,50 @@ SUM(weightInGms * availableQuantity) AS Total_Weight
 FROM zepto 
 GROUP BY category 
 ORDER BY Total_Weight; 
+
+
+-- With Multi CTE 
+WITH category_revenue AS (
+    SELECT category,
+    SUM(discountedSellingPrice * availableQuantity) 
+    AS total_revenue
+    FROM zepto
+    GROUP BY category
+),
+overall_avg AS (
+    SELECT AVG(total_revenue) AS avg_revenue
+    FROM category_revenue
+)
+SELECT 
+    category_revenue.category,
+    ROUND(category_revenue.total_revenue, 2) AS total_revenue,
+    ROUND(overall_avg.avg_revenue, 2) AS avg_revenue,
+    CASE 
+        WHEN total_revenue > avg_revenue THEN 'Above Average'
+        ELSE 'Below Average'
+    END AS performance
+FROM category_revenue, overall_avg
+ORDER BY total_revenue DESC;
+
+
+-- Rank products by discount within each category
+SELECT category, name, discountPercent,
+RANK() OVER (PARTITION BY category ORDER BY discountPercent DESC) AS discount_rank
+ FROM zepto;
+
+
+-- Running total of revenue by category
+SELECT category, name, discountedSellingPrice,
+SUM(discountedSellingPrice) OVER (PARTITION BY category) AS category_total_revenue
+FROM zepto;
+
+
+-- FInding Rank by Category
+WITH ranked AS (
+    SELECT category, name, discountPercent,
+    RANK() OVER(PARTITION BY category 
+                ORDER BY discountPercent DESC) AS rnk
+    FROM zepto
+)
+SELECT * FROM ranked
+WHERE rnk <= 3;
