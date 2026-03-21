@@ -16,6 +16,10 @@ trends and stock availability insights.
 3. How many products are in stock vs out of stock category wise?
 4. What is the average MRP vs discounted price per category?
 5. Which products have high discount but are still out of stock?
+6. Top 3 most discounted products in each category 
+  identified using RANK() window function
+7. Home Decor generated the highest estimated revenue 
+  among all categories
 
 ## Key Insights
 (Replace these with what YOUR queries actually returned)
@@ -30,4 +34,6 @@ trends and stock availability insights.
 - Sorting and ranking (ORDER BY, LIMIT)
 - NULL value handling
 - DISTINCT and CASE WHEN
+- Window Functions (RANK, OVER, PARTITION BY)  
+- CTEs (Common Table Expressions)
 
