@@ -22,6 +22,14 @@ trends and stock availability insights.
   among all categories
 
 ## Key Insights
+1. Top 10 best-value product based on the discount % are from Dukes Waffy
+   and chef's Basket and Chef's Foods
+2. Rank of product by discount within each category
+3. Patanjali Cow's Ghee has highest MRP which is out of stock
+4. Calculated esitmated revenue for each category
+5. Total inventory weight per Category
+6. Categories by Group like medium, small, large based on weight
+7. price per gram for product above 100g 
 
 
 ## Skills Demonstrated
