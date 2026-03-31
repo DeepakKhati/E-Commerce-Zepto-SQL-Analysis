@@ -22,10 +22,7 @@ trends and stock availability insights.
   among all categories
 
 ## Key Insights
-(Replace these with what YOUR queries actually returned)
-- Example: "Fruits & Vegetables had the highest number of products"
-- Example: "X category had the highest out of stock rate"
-- Example: "Average discount across all products was X%"
+
 
 ## Skills Demonstrated
 - Data importing and cleaning
